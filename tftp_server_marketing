@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>TFTP Server Tool - 简洁高效的文件传输</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #007aff;
+    }
+    h2 {
+      margin-top: 30px;
+      color: #444;
+    }
+    .cta {
+      margin-top: 40px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #d0021b;
+    }
+    .support {
+      margin-top: 60px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>TFTP 服务器工具 / TFTP Server Tool</h1>
+
+  <p>
+    <strong>中文：</strong>这是一款轻量级的 TFTP 服务器工具，专为开发者和网络工程师设计。  
+    - 一键启动服务，快速高效。  
+    - 从用户选择的目录安全提供文件。  
+    - 实时日志，掌控传输过程。  
+    无论是固件更新、设备调试还是文件分发，它都能为你提供稳定可靠的支持。
+  </p>
+
+  <p>
+    <strong>English:</strong> This lightweight TFTP server tool is designed for developers and network engineers.  
+    - One-click to start or stop the service.  
+    - Securely serve files from your chosen folder.  
+    - Real-time logs keep you in control.  
+    Whether for firmware updates, device debugging, or file distribution, it provides stable and reliable support.
+  </p>
+
+  <div class="cta">
+    立即下载，简化你的 TFTP 工作流程 / Download now and simplify your TFTP workflow
+  </div>
+
+  <div class="support">
+    技术支持 / Technical Support: <a href="mailto:327753@qq.com">327753@qq.com</a>
+  </div>
+
+</body>
+</html>
