@@ -3,86 +3,278 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pop Blocks Privacy Policy</title>
+  <title>Pop Blocks: Tap & Relax Puzzle</title>
+  <meta name="description" content="Pop Blocks is a relaxing no-ads block puzzle game. Tap matching blocks, plan bigger clears, use smart boosters, and challenge your high score.">
   <style>
+    :root {
+      color-scheme: light;
+      --ink: #14203a;
+      --muted: #60708c;
+      --line: #dbe3f1;
+      --panel: #ffffff;
+      --blue: #1d2a87;
+      --cyan: #2aa5df;
+      --green: #67bf63;
+    }
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: #172033;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
       background: #f6f8fc;
       line-height: 1.6;
     }
-    main {
-      max-width: 760px;
+    a {
+      color: #1463d9;
+    }
+    .hero {
+      color: #fff;
+      background: linear-gradient(160deg, #1b237b 0%, #214a99 52%, #2aa5df 100%);
+      padding: 56px 22px 64px;
+    }
+    .wrap {
+      max-width: 980px;
       margin: 0 auto;
-      padding: 48px 22px 72px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+    .icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: #0c1248;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      padding: 10px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+    }
+    .icon span {
+      border-radius: 5px;
+      background: var(--green);
+    }
+    .icon span:nth-child(2), .icon span:nth-child(6) {
+      background: #2fa7ee;
+    }
+    .icon span:nth-child(3), .icon span:nth-child(7) {
+      background: #ef5350;
+    }
+    .icon span:nth-child(4), .icon span:nth-child(8) {
+      background: #f5a24d;
+    }
+    .icon span:nth-child(5), .icon span:nth-child(9) {
+      background: #b06bdc;
     }
     h1 {
-      font-size: 34px;
-      line-height: 1.2;
-      margin: 0 0 8px;
+      margin: 0;
+      font-size: clamp(34px, 7vw, 64px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      max-width: 760px;
+      margin: 20px 0 28px;
+      font-size: 21px;
+      color: rgba(255,255,255,.88);
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .badge {
+      border: 1px solid rgba(255,255,255,.34);
+      border-radius: 999px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,.12);
+      font-weight: 650;
+      font-size: 14px;
+    }
+    main {
+      padding: 42px 22px 70px;
+    }
+    section {
+      margin: 0 auto 28px;
+      max-width: 980px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 10px 28px rgba(27, 45, 88, .06);
     }
     h2 {
-      font-size: 21px;
-      margin: 34px 0 10px;
+      margin: 0 0 14px;
+      font-size: 26px;
+      line-height: 1.25;
     }
-    p, li {
-      font-size: 16px;
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 18px;
     }
-    .updated {
-      color: #63708a;
-      margin-bottom: 28px;
+    p {
+      margin: 0 0 14px;
+    }
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    li {
+      margin: 6px 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .feature {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      background: #fbfcff;
+    }
+    .feature strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+    .muted {
+      color: var(--muted);
+    }
+    .support-list {
+      display: grid;
+      gap: 10px;
     }
     .zh {
-      margin-top: 56px;
-      padding-top: 40px;
-      border-top: 1px solid #d9e0ee;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    footer {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 22px 42px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 760px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      section {
+        padding: 22px;
+      }
     }
   </style>
 </head>
 <body>
-<main>
-  <h1>Pop Blocks Privacy Policy</h1>
-  <p class="updated">Last updated: May 14, 2026</p>
+  <header class="hero">
+    <div class="wrap">
+      <div class="brand">
+        <div class="icon" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+        <strong>Pop Blocks</strong>
+      </div>
+      <h1>Pop Blocks: Tap & Relax Puzzle</h1>
+      <p class="subtitle">A relaxing no-ads block puzzle. Tap matching colors, plan bigger clears, use smart boosters, and enjoy a quick puzzle break anytime.</p>
+      <div class="badges" aria-label="Highlights">
+        <span class="badge">No ads</span>
+        <span class="badge">Quick puzzle sessions</span>
+        <span class="badge">Boosters</span>
+        <span class="badge">Game Center</span>
+      </div>
+    </div>
+  </header>
 
-  <p>Pop Blocks is a casual puzzle game developed by RedOne. This privacy policy explains how the app handles information.</p>
+  <main>
+    <section>
+      <h2>About the Game</h2>
+      <p>Pop Blocks is a simple tap-to-clear puzzle game designed for calm, repeatable play. Tap two or more blocks of the same color to clear them. The bigger the group, the higher your score.</p>
+      <p>When the board gets tight, use 3x3 clear or color clear boosters to keep the game moving.</p>
 
-  <h2>Data We Collect</h2>
-  <p>We do not collect, store, sell, or share personal information through Pop Blocks.</p>
+      <div class="zh" lang="zh-Hans">
+        <h2>关于游戏</h2>
+        <p>Pop Blocks 是一款轻松的点击消除方块益智游戏，适合随时玩一局。点击两个或更多同色方块即可消除，一次消除越多，得分越高。</p>
+        <p>遇到卡点时，可以使用 3x3 清除或同色清除道具，帮助你继续推进关卡。</p>
+      </div>
+    </section>
 
-  <h2>Game Center</h2>
-  <p>If you use Game Center features such as leaderboards, Apple may process your Game Center account information according to Apple's privacy policy. We do not receive your Apple ID password or payment information.</p>
+    <section>
+      <h2>Features</h2>
+      <div class="grid">
+        <div class="feature">
+          <strong>Easy to play</strong>
+          <span class="muted">Clear matching blocks with simple tap controls.</span>
+        </div>
+        <div class="feature">
+          <strong>No ads</strong>
+          <span class="muted">Enjoy the puzzle without ad interruptions.</span>
+        </div>
+        <div class="feature">
+          <strong>Smart boosters</strong>
+          <span class="muted">Use 3x3 and color clear tools when you need help.</span>
+        </div>
+        <div class="feature">
+          <strong>Quick sessions</strong>
+          <span class="muted">Play a short round whenever you have a break.</span>
+        </div>
+        <div class="feature">
+          <strong>Free diamonds</strong>
+          <span class="muted">Claim free diamonds and keep boosters ready.</span>
+        </div>
+        <div class="feature">
+          <strong>Leaderboard</strong>
+          <span class="muted">Challenge your best score with Game Center support.</span>
+        </div>
+      </div>
 
-  <h2>In-App Purchases</h2>
-  <p>In-app purchases are processed by Apple. We do not receive or store your payment card details.</p>
+      <div class="zh" lang="zh-Hans">
+        <h2>游戏特点</h2>
+        <ul>
+          <li>简单易懂的点击消除规则</li>
+          <li>无广告打扰游戏节奏</li>
+          <li>3x3 与同色清除两种道具</li>
+          <li>适合碎片时间快速游玩</li>
+          <li>免费钻石补充道具</li>
+          <li>支持 Game Center 排行榜</li>
+        </ul>
+      </div>
+    </section>
 
-  <h2>Diagnostics</h2>
-  <p>Apple may provide aggregated crash or performance information to help developers improve apps. We use this information only to diagnose and improve app stability.</p>
+    <section>
+      <h2>Support</h2>
+      <div class="support-list">
+        <p><strong>Gameplay:</strong> Tap two or more blocks of the same color. Clear larger groups to earn more points.</p>
+        <p><strong>Boosters:</strong> 3x3 clear costs 1 diamond. Color clear costs 3 diamonds.</p>
+        <p><strong>Purchases:</strong> In-app purchases are processed securely by Apple. You can restore eligible purchases from the store screen when available.</p>
+        <p><strong>Game Center:</strong> Leaderboards require Game Center availability and sign-in.</p>
+        <p><strong>Contact:</strong> <a href="mailto:327753@qq.com">327753@qq.com</a></p>
+        <p><strong>Privacy Policy:</strong> <a href="https://redone2000.github.io/xiaoyi/popstar_privacy_policy.html">https://redone2000.github.io/xiaoyi/popstar_privacy_policy.html</a></p>
+      </div>
 
-  <h2>Contact</h2>
-  <p>If you have questions about this privacy policy, contact us through the support page: <a href="https://redone2000.github.io/xiaoyi/popstar.html">https://redone2000.github.io/xiaoyi/popstar.html</a></p>
+      <div class="zh" lang="zh-Hans">
+        <h2>支持与帮助</h2>
+        <div class="support-list">
+          <p><strong>玩法：</strong>点击两个或更多同色方块即可消除。一次消除越多，得分越高。</p>
+          <p><strong>道具：</strong>3x3 清除消耗 1 颗钻石，同色清除消耗 3 颗钻石。</p>
+          <p><strong>购买：</strong>App 内购买由 Apple 安全处理。可在商店页面恢复符合条件的购买项目。</p>
+          <p><strong>Game Center：</strong>排行榜功能需要 Game Center 可用并完成登录。</p>
+          <p><strong>联系邮箱：</strong><a href="mailto:327753@qq.com">327753@qq.com</a></p>
+          <p><strong>隐私政策：</strong><a href="https://redone2000.github.io/xiaoyi/popstar_privacy_policy.html">https://redone2000.github.io/xiaoyi/popstar_privacy_policy.html</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <section class="zh" lang="zh-Hans">
-    <h1>Pop Blocks 隐私政策</h1>
-    <p class="updated">最后更新：2026 年 5 月 14 日</p>
-
-    <p>Pop Blocks 是 RedOne 开发的一款休闲益智游戏。本隐私政策说明本 App 如何处理信息。</p>
-
-    <h2>我们收集的数据</h2>
-    <p>Pop Blocks 不会通过 App 收集、存储、出售或分享个人信息。</p>
-
-    <h2>Game Center</h2>
-    <p>如果你使用排行榜等 Game Center 功能，Apple 可能会根据其隐私政策处理你的 Game Center 账户信息。我们不会获取你的 Apple ID 密码或支付信息。</p>
-
-    <h2>App 内购买</h2>
-    <p>App 内购买由 Apple 处理。我们不会获取或存储你的银行卡等支付信息。</p>
-
-    <h2>诊断信息</h2>
-    <p>Apple 可能会向开发者提供汇总后的崩溃或性能信息，用于帮助改进 App 稳定性。我们仅将这些信息用于问题诊断和体验改进。</p>
-
-    <h2>联系我们</h2>
-    <p>如对本隐私政策有疑问，可通过支持页面联系我们：<a href="https://redone2000.github.io/xiaoyi/popstar.html">https://redone2000.github.io/xiaoyi/popstar.html</a></p>
-  </section>
-</main>
+  <footer>
+    <p>Copyright © 2026 RedOne. Pop Blocks is available on the App Store.</p>
+  </footer>
 </body>
 </html>
