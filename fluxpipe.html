@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FluxPipe is a calm color-connecting puzzle game for iOS, with daily warm-up, focused runs, and player-created levels.">
+  <title>FluxPipe</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #14233d;
+      --muted: #647b93;
+      --blue: #2587f4;
+      --green: #54c93f;
+      --orange: #ff842b;
+      --red: #f33434;
+      --panel: #ffffff;
+      --line: #d9e8f6;
+      --bg: #e9f7ff;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(37, 135, 244, .08) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(37, 135, 244, .08) 1px, transparent 1px),
+        var(--bg);
+      background-size: 72px 72px;
+      line-height: 1.65;
+    }
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 36px 22px 72px;
+    }
+    .language-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-bottom: 36px;
+    }
+    .language-nav a {
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 13px;
+      background: rgba(255, 255, 255, .82);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    section {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(20, 35, 61, .12);
+    }
+    section:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr);
+      gap: 34px;
+      align-items: center;
+    }
+    .copy {
+      min-width: 0;
+    }
+    .eyebrow {
+      color: var(--blue);
+      font-weight: 800;
+      margin: 0 0 10px;
+    }
+    h1 {
+      font-size: clamp(40px, 8vw, 72px);
+      line-height: 1.04;
+      margin: 0 0 14px;
+      letter-spacing: 0;
+    }
+    h2 {
+      font-size: 26px;
+      margin: 34px 0 12px;
+    }
+    p {
+      font-size: 18px;
+      margin: 0 0 14px;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: 21px;
+      max-width: 620px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 800;
+      border: 1px solid var(--blue);
+    }
+    .button.primary {
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 10px 22px rgba(37, 135, 244, .24);
+    }
+    .button.secondary {
+      color: var(--blue);
+      background: #fff;
+    }
+    .board {
+      position: relative;
+      aspect-ratio: 1;
+      min-height: 260px;
+      border-radius: 28px;
+      background:
+        linear-gradient(90deg, rgba(37, 135, 244, .12) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(37, 135, 244, .12) 1px, transparent 1px),
+        rgba(255, 255, 255, .92);
+      background-size: 42px 42px;
+      border: 1px solid #c7ddf2;
+      box-shadow: 0 18px 40px rgba(28, 82, 126, .14);
+      overflow: hidden;
+    }
+    .pipe {
+      position: absolute;
+      border-radius: 999px;
+      box-shadow: inset 0 -6px 0 rgba(0, 0, 0, .12), inset 0 6px 0 rgba(255, 255, 255, .24);
+    }
+    .pipe.blue {
+      left: 16%;
+      top: 20%;
+      width: 12%;
+      height: 55%;
+      background: var(--blue);
+    }
+    .pipe.blue-h {
+      left: 16%;
+      bottom: 24%;
+      width: 48%;
+      height: 12%;
+      background: var(--blue);
+    }
+    .pipe.green {
+      left: 34%;
+      top: 18%;
+      width: 48%;
+      height: 11%;
+      background: var(--green);
+    }
+    .pipe.orange {
+      left: 38%;
+      top: 46%;
+      width: 34%;
+      height: 11%;
+      background: var(--orange);
+    }
+    .pipe.orange-v {
+      right: 26%;
+      top: 46%;
+      width: 11%;
+      height: 28%;
+      background: var(--orange);
+    }
+    .pipe.red {
+      left: 22%;
+      bottom: 13%;
+      width: 56%;
+      height: 12%;
+      background: var(--red);
+    }
+    .pipe.red-v {
+      right: 18%;
+      top: 47%;
+      width: 12%;
+      height: 40%;
+      background: var(--red);
+    }
+    .dot {
+      position: absolute;
+      width: 17%;
+      aspect-ratio: 1;
+      border-radius: 999px;
+      box-shadow: inset 0 -6px 0 rgba(0, 0, 0, .15), inset 0 7px 0 rgba(255, 255, 255, .28), 0 8px 14px rgba(20, 35, 61, .14);
+    }
+    .dot.blue-a { left: 13.5%; top: 14%; background: var(--blue); }
+    .dot.blue-b { left: 55%; bottom: 20%; background: var(--blue); }
+    .dot.green-a { left: 30%; top: 15%; background: var(--green); }
+    .dot.green-b { right: 13%; top: 15%; background: var(--green); }
+    .dot.orange-a { left: 34%; top: 40%; background: var(--orange); }
+    .dot.orange-b { right: 22%; top: 67%; background: var(--orange); }
+    .dot.red-a { left: 17%; bottom: 8%; background: var(--red); }
+    .dot.red-b { right: 15%; top: 40%; background: var(--red); }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .feature {
+      background: rgba(255, 255, 255, .86);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .feature strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .feature span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+    footer {
+      margin-top: 54px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(20, 35, 61, .12);
+      color: var(--muted);
+      font-size: 15px;
+    }
+    footer a {
+      color: var(--blue);
+    }
+    @media (max-width: 760px) {
+      main {
+        padding-top: 24px;
+      }
+      .language-nav {
+        justify-content: flex-start;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .board {
+        order: -1;
+      }
+      .features {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 42px;
+      }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <nav class="language-nav" aria-label="Language">
+    <a href="#en">English</a>
+    <a href="#zh-Hans">简体中文</a>
+    <a href="#zh-Hant">繁體中文</a>
+  </nav>
+
+  <section id="en" lang="en">
+    <div class="hero">
+      <div class="copy">
+        <p class="eyebrow">Color-connecting puzzle for iOS</p>
+        <h1>FluxPipe</h1>
+        <p class="lead">Plan clean paths, connect matching colors, and keep a calm daily puzzle habit.</p>
+        <div class="actions">
+          <a class="button primary" href="https://www.yoururl.cn/">Play online</a>
+          <a class="button secondary" href="https://redone2000.github.io/xiaoyi/fluxpipe_support.html">Support</a>
+          <a class="button secondary" href="https://redone2000.github.io/xiaoyi/fluxpipe_privacy.html">Privacy</a>
+        </div>
+      </div>
+      <div class="board" aria-hidden="true">
+        <span class="pipe blue"></span><span class="pipe blue-h"></span>
+        <span class="pipe green"></span>
+        <span class="pipe orange"></span><span class="pipe orange-v"></span>
+        <span class="pipe red"></span><span class="pipe red-v"></span>
+        <span class="dot blue-a"></span><span class="dot blue-b"></span>
+        <span class="dot green-a"></span><span class="dot green-b"></span>
+        <span class="dot orange-a"></span><span class="dot orange-b"></span>
+        <span class="dot red-a"></span><span class="dot red-b"></span>
+      </div>
+    </div>
+    <div class="features">
+      <div class="feature"><strong>Daily warm-up</strong><span>A short puzzle routine for a steady daily break.</span></div>
+      <div class="feature"><strong>Focus runs</strong><span>Choose harder circuits when you want a deeper planning challenge.</span></div>
+      <div class="feature"><strong>Workshop levels</strong><span>Create, publish, and play shared puzzles from other players.</span></div>
+    </div>
+  </section>
+
+  <section id="zh-Hans" lang="zh-Hans">
+    <div class="hero">
+      <div class="copy">
+        <p class="eyebrow">iOS 颜色连线益智游戏</p>
+        <h1>卢比克斯管道</h1>
+        <p class="lead">规划清晰路线，接通同色管道，用每天几分钟完成一次轻松的路径练习。</p>
+        <div class="actions">
+          <a class="button primary" href="https://www.yoururl.cn/">点击体验</a>
+          <a class="button secondary" href="https://redone2000.github.io/xiaoyi/fluxpipe_support.html">技术支持</a>
+          <a class="button secondary" href="https://redone2000.github.io/xiaoyi/fluxpipe_privacy.html">隐私政策</a>
+        </div>
+      </div>
+      <div class="board" aria-hidden="true">
+        <span class="pipe blue"></span><span class="pipe blue-h"></span>
+        <span class="pipe green"></span>
+        <span class="pipe orange"></span><span class="pipe orange-v"></span>
+        <span class="pipe red"></span><span class="pipe red-v"></span>
+        <span class="dot blue-a"></span><span class="dot blue-b"></span>
+        <span class="dot green-a"></span><span class="dot green-b"></span>
+        <span class="dot orange-a"></span><span class="dot orange-b"></span>
+        <span class="dot red-a"></span><span class="dot red-b"></span>
+      </div>
+    </div>
+    <div class="features">
+      <div class="feature"><strong>每日热身</strong><span>用短小关卡保持稳定的每日解压节奏。</span></div>
+      <div class="feature"><strong>专注任务</strong><span>想挑战时，选择更高难度的回路进行深度规划。</span></div>
+      <div class="feature"><strong>关卡工坊</strong><span>创建、发布并游玩其他玩家分享的管道关卡。</span></div>
+    </div>
+  </section>
+
+  <section id="zh-Hant" lang="zh-Hant">
+    <div class="hero">
+      <div class="copy">
+        <p class="eyebrow">iOS 顏色連線益智遊戲</p>
+        <h1>盧比克斯管道</h1>
+        <p class="lead">規劃清晰路線，接通同色管道，用每天幾分鐘完成一次輕鬆的路徑練習。</p>
+        <div class="actions">
+          <a class="button primary" href="https://www.yoururl.cn/">點擊體驗</a>
+          <a class="button secondary" href="https://redone2000.github.io/xiaoyi/fluxpipe_support.html">技術支援</a>
+          <a class="button secondary" href="https://redone2000.github.io/xiaoyi/fluxpipe_privacy.html">隱私政策</a>
+        </div>
+      </div>
+      <div class="board" aria-hidden="true">
+        <span class="pipe blue"></span><span class="pipe blue-h"></span>
+        <span class="pipe green"></span>
+        <span class="pipe orange"></span><span class="pipe orange-v"></span>
+        <span class="pipe red"></span><span class="pipe red-v"></span>
+        <span class="dot blue-a"></span><span class="dot blue-b"></span>
+        <span class="dot green-a"></span><span class="dot green-b"></span>
+        <span class="dot orange-a"></span><span class="dot orange-b"></span>
+        <span class="dot red-a"></span><span class="dot red-b"></span>
+      </div>
+    </div>
+    <div class="features">
+      <div class="feature"><strong>每日熱身</strong><span>用短小關卡保持穩定的每日紓壓節奏。</span></div>
+      <div class="feature"><strong>專注任務</strong><span>想挑戰時，選擇更高難度的回路進行深度規劃。</span></div>
+      <div class="feature"><strong>關卡工坊</strong><span>建立、發布並遊玩其他玩家分享的管道關卡。</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>FluxPipe / 卢比克斯管道 / 盧比克斯管道</p>
+    <p>
+      <a href="https://www.yoururl.cn/">Play online</a>
+      · <a href="https://redone2000.github.io/xiaoyi/fluxpipe_support.html">Support</a>
+      · <a href="https://redone2000.github.io/xiaoyi/fluxpipe_privacy.html">Privacy</a>
+    </p>
+  </footer>
+</main>
+</body>
+</html>
