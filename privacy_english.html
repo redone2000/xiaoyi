@@ -18,8 +18,8 @@
 <body>
 
 <h1>隐私政策 / Privacy Policy</h1>
-<p class="cn">版本号：v1.3　最近更新日期：2026-07-10</p>
-<p class="en">Version: v1.3　Last Updated: 2026-07-10</p>
+<p class="cn">版本号：v1.4　最近更新日期：2026-07-13</p>
+<p class="en">Version: v1.4　Last Updated: 2026-07-13</p>
 
 <h2>一、我们如何收集和使用您的信息 / How We Collect and Use Your Information</h2>
 <p class="cn">听写写无需注册或登录即可使用。我们不会要求您提供手机号、真实姓名、身份证件号码等身份信息。</p>
@@ -30,8 +30,14 @@
 <p class="en">Vocabulary lists, words, phrases, sentences, dictation results, and other learning content that you create, import, edit, or practice in the app are stored locally on your device by default. We do not send this learning content to a server unless you use the automatic translation or high-quality audio features described below. We do not use learning content for public display, advertising, or training public models.</p>
 
 <h3>（二）高清音质云端合成 / High-Quality Cloud Speech Synthesis</h3>
-<p class="cn">当您使用 Pro 高清音质功能时，应用会将需要朗读的文本发送至云端语音合成服务，用于生成更清晰自然的朗读音频。生成后的音频会下载并缓存在您的设备本地，以便后续重复练习时优先使用本地缓存。我们仅为提供该功能而处理相关文本和音频，不会将其用于公开展示或广告目的。</p>
-<p class="en">When you use the Pro high-quality audio feature, the app sends the text to be read aloud to a cloud speech synthesis service to generate clearer and more natural audio. The generated audio is downloaded and cached locally on your device so later practice can use the local cache first. We process the relevant text and audio only to provide this feature and do not use it for public display or advertising.</p>
+<p class="cn">当您主动选择 Pro 高清音质时，应用会通过加密连接，将本次需要朗读且本地没有可用高清缓存的英文单词或短语发送至我们运营的云端服务。云端会先使用腾讯云文本内容安全服务检查这些待合成文本；只有检查通过后，才会使用 Microsoft Azure Speech 生成朗读音频。未通过检查或检查服务暂时不可用时，本次云端合成会停止，应用可改用设备本机的普通音质继续练习。</p>
+<p class="en">When you actively choose Pro high-quality audio, the app sends, over an encrypted connection, only the English words or phrases that need to be read and do not already have a usable high-quality cache on your device to a cloud service operated by us. The cloud service first uses Tencent Cloud Text Moderation to review the text awaiting synthesis. Only text that passes this review is sent to Microsoft Azure Speech to generate audio. If the review does not pass or the review service is temporarily unavailable, cloud synthesis for that request stops and the app may continue the exercise using the device's standard on-device voice.</p>
+
+<p class="cn">为减少重复合成、等待时间和服务成本，检查通过后生成的音频可能保存在腾讯云对象存储中；其他用户请求完全相同且符合相同音色与合成参数的文本时，云端可以直接复用该音频。缓存对象不包含词表名称、中文释义、答题结果、设备身份、Apple ID 或 Pro 状态。音频下载后也会缓存在您的设备本地。已经存在于设备本地的高清缓存会优先使用，不会仅为重新检查而再次上传文本。</p>
+<p class="en">To reduce repeated synthesis, waiting time, and service cost, audio generated after a successful review may be stored in Tencent Cloud Object Storage. When another user requests exactly the same text with the same voice and synthesis parameters, the cloud service may reuse that audio. Cached objects do not contain vocabulary-list names, Chinese definitions, answers or results, device identity, Apple ID, or Pro status. The downloaded audio is also cached locally on your device. Existing local high-quality audio is used first and its text is not uploaded again solely for re-review.</p>
+
+<p class="cn">我们仅为内容安全检查、语音生成、缓存复用和故障排查处理相关文本与音频，不将其用于公开展示、广告投放、用户画像或训练公开模型。</p>
+<p class="en">We process the relevant text and audio only for content-safety review, speech generation, cache reuse, and troubleshooting. We do not use it for public display, advertising, user profiling, or training public models.</p>
 
 <h3>（三）录入时自动翻译 / Automatic Translation During Entry</h3>
 <p class="cn">当您在录入页面填写英文或中文，或在拍照识别后的确认页处理识别文字，且另一语言栏为空时，应用会将当前输入或识别出的文本和翻译方向通过加密连接发送至我们运营的翻译服务，用于返回对应译文并填入另一栏。拍照识别图片在设备本机处理，不会上传；该功能也不发送已保存的整份词表，不将文本用于公开展示、广告或训练公开模型。</p>
@@ -50,8 +56,8 @@
 <p class="en">Subscriptions, lifetime unlocks, and purchase restoration are handled by the Apple App Store. The app reads transaction and entitlement status returned by Apple on the device to activate, restore, or validate Pro benefits; we do not receive or store your card details or Apple ID password.</p>
 
 <h2>二、我们如何共享、转让与公开披露信息 / How We Share, Transfer, and Disclose Information</h2>
-<p class="cn">除非取得您的同意或法律法规要求，我们不会出售、出租或公开披露您的个人信息。为实现应用功能，我们会在必要范围内使用 Apple（内购、订阅、恢复购买和崩溃诊断）、云端语音合成服务（仅用于高清音质音频生成）、我们运营的翻译与反馈服务（仅用于返回译文和处理用户主动提交的反馈），以及匿名统计或崩溃分析服务（仅用于产品稳定性和体验改进）。</p>
-<p class="en">We do not sell, rent, or publicly disclose your personal information unless with your consent or as required by law. To provide app features, we use Apple for in-app purchases, subscriptions, purchase restoration, and crash diagnostics; cloud speech synthesis services solely for high-quality audio generation; translation and feedback services we operate solely to return translations and handle feedback you voluntarily submit; and anonymous analytics or crash analysis services solely for stability and experience improvement.</p>
+<p class="cn">除非取得您的同意或法律法规要求，我们不会出售、出租或公开披露您的个人信息。为实现应用功能，我们会在必要范围内使用：Apple（内购、订阅、恢复购买和崩溃诊断）；腾讯云（高清请求的文本内容安全检查、云函数处理和合成音频缓存）；Microsoft Azure Speech（仅在检查通过后生成高清朗读音频）；我们运营的翻译与反馈服务（仅用于返回译文和处理您主动提交的反馈）；以及匿名统计或崩溃分析服务（仅用于产品稳定性和体验改进）。</p>
+<p class="en">We do not sell, rent, or publicly disclose your personal information unless with your consent or as required by law. To provide app features, we use, only as necessary: Apple for in-app purchases, subscriptions, purchase restoration, and crash diagnostics; Tencent Cloud for text-safety review of high-quality audio requests, cloud-function processing, and synthesized-audio caching; Microsoft Azure Speech solely to generate high-quality audio after a request passes review; translation and feedback services operated by us solely to return translations and process feedback you voluntarily submit; and anonymous analytics or crash-analysis services solely for stability and experience improvement.</p>
 
 <h2>三、您的权利 / Your Rights</h2>
 <p class="cn">您可以在设备上自行管理或删除本地学习内容和缓存音频。您也可以通过系统设置管理 App 权限，通过 App Store 管理或取消订阅。如需咨询、删除与您相关的可识别信息，或撤回非必要统计授权，可通过下方邮箱联系我们。</p>
